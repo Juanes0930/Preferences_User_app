@@ -2,8 +2,10 @@
 
 import 'package:flutter/material.dart';
 import 'package:preferences_user_app/widgets/side_menu.dart';
+import 'package:provider/provider.dart';
 
 import '../config_preferences/config_preferences.dart';
+import '../provider/state_provider.dart';
 
 class SettingsScreen extends StatefulWidget {
 
@@ -44,6 +46,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 value: ConfigPreferences.isDarkmode, 
                 onChanged: (value){
                   ConfigPreferences.darkmode = value ;
+                  final themeProvider = Provider.of<StateProvider>(context , listen:false); 
+                  value ? themeProvider.setDarkMode() : themeProvider.setLightMode();
                   setState(() {});
                 }),
                 const Divider(height: 15,),
