@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:preferences_user_app/config_preferences/config_preferences.dart';
 import 'package:preferences_user_app/screens/home_screen.dart';
 import 'package:preferences_user_app/screens/settings_screen.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+
+WidgetsFlutterBinding.ensureInitialized();  
+await ConfigPreferences.init();
+runApp(const MyApp());
+}
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -12,8 +18,9 @@ class MyApp extends StatelessWidget {
     
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
+      theme: ThemeData.light(
         useMaterial3: true
+        
       ),
       title: 'Material App',
       initialRoute: HomeScreen.routerName,
