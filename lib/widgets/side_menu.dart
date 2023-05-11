@@ -14,7 +14,31 @@ class SideMenu extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: [
          _DrawerHeader(),
-          
+          ListTile(
+          trailing: const Icon(Icons.arrow_forward_ios, color: Colors.blueAccent,),
+          leading: const Icon(Icons.pages_outlined, color: Colors.blueAccent,),
+          title: const Text('Darkmode' , style: TextStyle(fontSize: 17)),
+          onTap: (){
+            Navigator.pushReplacementNamed(context,HomeScreen.routerName);
+          },
+         ),
+          const Divider(),
+          ListTile(
+          trailing: const Icon(Icons.arrow_forward_ios, color: Colors.blueAccent,),
+          leading: const Icon(Icons.people_alt_outlined, color: Colors.blueAccent,),
+          title: const Text('Gender' , style: TextStyle(fontSize: 17)),
+          onTap: (){},
+         ),
+          const Divider(),
+          ListTile(
+          trailing: const Icon(Icons.arrow_forward_ios, color: Colors.blueAccent,),
+          leading: const Icon(Icons.settings, color: Colors.blueAccent,),
+          title: const Text('Settings' , style: TextStyle(fontSize: 17)),
+          onTap: (){
+            Navigator.pushReplacementNamed(context, SettingsScreen.routerName);
+          },
+         ),
+          const Divider(),
         ],
       ),
     );
